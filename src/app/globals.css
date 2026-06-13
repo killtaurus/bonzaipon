@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0f1410;
+  --color-surface: #18211a;
+  --color-surface-2: #202c22;
+  --color-border: #2c3a2e;
+  --color-text: #e8f0e6;
+  --color-muted: #91a18d;
+  --color-leaf: #4ca96b;
+  --color-leaf-bright: #6fd393;
+  --color-gold: #f4c430;
+  --color-vice: #c75b8a;
+  --color-copper: #c87f4a;
+}
+
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Tension/reveal animations for the gacha screen */
+@keyframes shake {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  20% { transform: translateX(-3px) rotate(-2deg); }
+  40% { transform: translateX(3px) rotate(2deg); }
+  60% { transform: translateX(-2px) rotate(-1deg); }
+  80% { transform: translateX(2px) rotate(1deg); }
+}
+@keyframes pop {
+  0% { transform: scale(0.2); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(111, 211, 147, 0.0); }
+  50% { box-shadow: 0 0 28px 6px rgba(111, 211, 147, 0.55); }
+}
+.anim-shake { animation: shake 0.5s ease-in-out infinite; }
+.anim-pop { animation: pop 0.45s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+.anim-glow { animation: pulse-glow 1.1s ease-in-out infinite; }
